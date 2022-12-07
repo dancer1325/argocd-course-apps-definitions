@@ -1,17 +1,22 @@
+# The most simple ArgoCD's application.yaml
+# Argo application object CRD
 apiVersion: argoproj.io/v1alpha1
 kind: Application
+# Name of the application
 metadata: 
   name: guestbook
-  namespace: argocd
-spec: 
+  namespace: argocd # our ArgoCD's namespace
+spec:
+# Destination cluster
   destination: 
     namespace: guestbook
-    server: "https://kubernetes.default.svc"
+    server: "https://kubernetes.default.svc"    # our destination Kubernetes cluster's URL
   project: default
+# Source of manifests
   source: 
-    path: guestbook
-    repoURL: "https://github.com/mabusaa/argocd-example-apps.git"
-    targetRevision: master
+    path: guestbook # relative path based on the repoURL property
+    repoURL: "https://github.com/dancer1325/argocd-example-apps.git"
+    targetRevision: master  # source's branch name
   syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
+    syncOptions:    # https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/
+      - CreateNamespace=true    # https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/#create-namespace
