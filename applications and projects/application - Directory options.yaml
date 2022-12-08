@@ -8,12 +8,15 @@ spec:
     namespace: directory-app
     server: "https://kubernetes.default.svc"
   project: default
-  source: 
+  source:
+    # specify via git repo
     path: guestbook-with-sub-directories
     repoURL: "https://github.com/mabusaa/argocd-example-apps.git"
     targetRevision: master
+    # https://argo-cd.readthedocs.io/en/stable/user-guide/directory/#enabling-recursive-resource-detection
     directory:
       recurse: true
+      # if we wouldn't have set as true --> recursive CRD (deployment in this case) wouldn't have been created
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
