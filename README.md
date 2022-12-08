@@ -16,6 +16,8 @@
         * Why if you get all (`kubectl get all -n argocd`) it doesn't appear?
     * `argocd app list`
     * via Web UI
+* How to deploy / refresh new changes?
+    * `kubectl apply -f NameOfTheFile`
 ## Clusters
 
 ## Repos

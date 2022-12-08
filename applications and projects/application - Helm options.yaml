@@ -8,12 +8,13 @@ spec:
     namespace: helm-app
     server: "https://kubernetes.default.svc"
   project: default
-  source: 
-    path: helm-guestbook
+  source:
+    # specify via git repo
+    path: helm-guestbook    # Relative path to the repoURL
     repoURL: "https://github.com/mabusaa/argocd-example-apps.git"
     targetRevision: master
     helm:
-     releaseName: my-release
+     releaseName: my-release    # modify releaseName that by default would be the metadata.name
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
