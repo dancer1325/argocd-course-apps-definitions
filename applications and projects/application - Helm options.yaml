@@ -13,6 +13,7 @@ spec:
     path: helm-guestbook    # Relative path to the repoURL
     repoURL: "https://github.com/mabusaa/argocd-example-apps.git"
     targetRevision: master
+    # https://argo-cd.readthedocs.io/en/stable/user-guide/helm/#declarative
     helm:
      releaseName: my-release    # modify releaseName that by default would be the metadata.name
   syncPolicy:

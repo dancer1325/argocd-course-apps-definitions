@@ -8,10 +8,12 @@ spec:
     namespace: kustomize-app
     server: "https://kubernetes.default.svc"
   project: default
-  source: 
+  source:
+    # specify via git repo
     path: kustomize-guestbook
     repoURL: "https://github.com/mabusaa/argocd-example-apps.git"
     targetRevision: master
+    # https://argo-cd.readthedocs.io/en/stable/user-guide/kustomize/
     kustomize:
       namePrefix: staging-
       commonLabels:
