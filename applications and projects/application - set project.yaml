@@ -10,7 +10,7 @@ spec:
   project: demo-project # Set the application into the project
   source: 
     path: guestbook
-    repoURL: "https://github.com/mabusaa/argocd-example-apps.git"
+    repoURL: "https://github.com/dancer1325/argocd-example-apps.git"
     targetRevision: master
   syncPolicy:
     syncOptions:
