@@ -4,7 +4,9 @@ metadata:
   name: guestbook-dev-project
   namespace: argocd
 spec: 
-  destination: 
+  destination:
+    # If we define for the application a spec.destination.namespace, not allowed for the project --> the application will be created as UNKNOWN status
+    # namespace: test-1
     namespace: ns-1
     server: "https://kubernetes.default.svc"
   project: dev-project

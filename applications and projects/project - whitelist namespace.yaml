@@ -8,6 +8,7 @@ spec:
   sourceRepos:
   - '*'
 
+  # https://github.com/argoproj/argo-cd/blob/master/pkg/apis/application/v1alpha1/types.go#L558
   destinations:
   - namespace: ns-1
     server: https://kubernetes.default.svc
