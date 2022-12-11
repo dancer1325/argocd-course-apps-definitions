@@ -3,8 +3,11 @@ kind: Secret
 metadata:
   name: private-repo-https
   namespace: argocd
+  # https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
   labels:
+    # Next label is mandatory for private repo's
     argocd.argoproj.io/secret-type: repository
+# https://kubernetes.io/docs/concepts/configuration/secret/#restriction-names-data
 stringData:
   type: git
   url: https://github.com/dancer1325/argocd-example-apps-private.git
