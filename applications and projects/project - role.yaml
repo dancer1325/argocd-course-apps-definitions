@@ -20,8 +20,10 @@ spec:
   - group: '*'
     kind: '*'
 
+  # https://github.com/argoproj/argo-cd/blob/master/pkg/apis/application/v1alpha1/types.go#L1733
   roles:
   - name: ci-role
     description: Sync privileges for project-with-role
     policies:
+    # https://argo-cd.readthedocs.io/en/stable/operator-manual/rbac/#rbac-permission-structure
     - p, proj:project-with-role:ci-role, applications, sync, project-with-role/*, allow
