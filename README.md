@@ -18,6 +18,18 @@
     * via Web UI
 * How to deploy / refresh new changes?
     * `kubectl apply -f NameOfTheFile`
+* If the application or project live in a private repo
+    * no change at all in it's definition is required
+    * register the credentials as Kubernetes' secret is necessary
+
+
 ## Clusters
 
 ## Repos
+* Private repos
+    * Create Kubernetes' secret resource
+    * Create personal access token to the private repo (:warning: Don't push it :warning:)
+    * `kubectl apply -f NameOfTheFile`
+    * `kubectl get secret -n argocd`
+        * Check that secret has been created
+    * Go ArgoCD Web UI, Settings, Repositories and check that a new one has been added
