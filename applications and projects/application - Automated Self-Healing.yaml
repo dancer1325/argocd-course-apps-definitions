@@ -16,6 +16,7 @@ spec:
       recurse: true
   syncPolicy:
     automated:
+        # Automated sync and selfHeal enabled
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
