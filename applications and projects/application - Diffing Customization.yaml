@@ -18,9 +18,11 @@ spec:
     automated: {}
     syncOptions:
       - CreateNamespace=true
+  # Ignore diffing customization
   ignoreDifferences:
     - group: apps
       kind: Deployment
+      # based on jsonPointers (=== relative references to attributes in a JSON)
       jsonPointers:
       - /spec/replicas
 

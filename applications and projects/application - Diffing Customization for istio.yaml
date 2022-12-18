@@ -16,9 +16,11 @@ spec:
     automated: {}
     syncOptions:
       - CreateNamespace=true
+  # Ignore diffing customization
   ignoreDifferences:
     - group: admissionregistration.k8s.io
       kind: MutatingWebhookConfiguration
+      # based on jqPathExpressions
       jqPathExpressions:
         - '.webhooks[]?.clientConfig.caBundle'
 
