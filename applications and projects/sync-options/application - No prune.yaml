@@ -18,5 +18,6 @@ spec:
     automated: {}
     syncOptions:
       - CreateNamespace=true
+      # No Prune indicated, since it's specified at resource level
 
     
