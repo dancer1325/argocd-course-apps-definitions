@@ -20,7 +20,7 @@ spec:
   ignoreDifferences:
     - group: admissionregistration.k8s.io
       kind: MutatingWebhookConfiguration
-      # based on jqPathExpressions
+      # based on jqPathExpressions. Value can be got from diff
       jqPathExpressions:
         - '.webhooks[]?.clientConfig.caBundle'
 
