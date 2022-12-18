@@ -15,7 +15,7 @@ spec:
     directory:
       recurse: true
   syncPolicy:
-    # Automated sync enabled
+    # Automated sync enabled, and prune by default is disabled
     automated: {}
     syncOptions:
       - CreateNamespace=true
