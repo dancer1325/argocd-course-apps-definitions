@@ -11,6 +11,7 @@ spec:
   source: 
     chart: sealed-secrets
     repoURL: "https://charts.bitnami.com/bitnami"
+    # Track the manifest placed in a helm repo
     targetRevision: 1.* # you can use greater than and smaller than ex: >=3.0.0 <4.1.0
   syncPolicy:
     automated: {}
