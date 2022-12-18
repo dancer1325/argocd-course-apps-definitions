@@ -1,3 +1,4 @@
+# Create repo credentials template
 apiVersion: v1
 kind: Secret
 metadata:
@@ -7,6 +8,7 @@ metadata:
     argocd.argoproj.io/secret-type: repo-creds
 stringData:
   type: git
+  # Base URL of the organization / user
   url: https://github.com/dancer1325
   password: # password goes here, NOTE: dont push secrets into git, use sealed secrets as a solution for secrets in gitops.
   username: my-token
