@@ -11,6 +11,7 @@ spec:
   source: 
     path: guestbook
     repoURL: "https://github.com/dancer1325/argocd-example-apps.git"
+    # Track the manifest by commit SHA
     targetRevision: 2455bb6
     directory:
       recurse: true
