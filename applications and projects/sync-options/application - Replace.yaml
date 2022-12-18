@@ -18,6 +18,7 @@ spec:
     automated: {}
     syncOptions:
       - CreateNamespace=true
+      # Replace / recreate the resources instead of deploying the resources changes
       - Replace=true
       
 
