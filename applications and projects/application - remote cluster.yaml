@@ -4,9 +4,13 @@ metadata:
   name: guestbook-staging
   namespace: argocd
 spec: 
-  destination: 
+  destination:
+    # Application to be deployed in the remote cluster
     namespace: guestbook-staging
+    # How to define the remote cluster?
+    # 1. server
     server: "https://c50189b1-bb18-4a46-b772-b045e0ed4fde.k8s.ondigitalocean.com"
+    # 2. cluster's name -- already defined via secret --
   project: default
   source: 
     path: guestbook

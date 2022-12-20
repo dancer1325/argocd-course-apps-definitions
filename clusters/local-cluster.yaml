@@ -4,6 +4,7 @@ metadata:
   namespace: argocd
   name: local-cluster
   labels:
+    # Secret to add resources to this cluster
     argocd.argoproj.io/secret-type: cluster
     environment: "dev"
     provider: "local"
