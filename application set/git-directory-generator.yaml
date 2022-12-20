@@ -2,13 +2,16 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: security-apps
+  # Deploy the ApplicationSet in the ArgoCD's namespaced
   namespace: argocd
 spec:
   generators:
+   # ApplicationSet via Git generator
   - git:
       repoURL: https://github.com/dancer1325/argocd-example-apps.git
       revision: master
       directories:
+      # *  Include all the applications under this path
       - path: helmcharts/security-policy-charts/*
   template:
     metadata:
@@ -22,6 +25,7 @@ spec:
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
+        # Deploy in different namespace
         namespace: '{{path.basename}}'
       syncPolicy:
          syncOptions:
