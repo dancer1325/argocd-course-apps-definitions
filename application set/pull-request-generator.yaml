@@ -2,9 +2,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: webapp-review
+  # Deploy the ApplicationSet in the ArgoCD's namespace
   namespace: argocd
 spec:
   generators:
+  # ApplicationSet via PR generator
   - pullRequest:
       github:
         # The GitHub organization or user.
@@ -14,9 +16,11 @@ spec:
         # Labels is used to filter the PRs that you want to target. (optional)
         labels:
         - preview
+      # Modify the default ArgoCD's polling
       requeueAfterSeconds: 90
   template:
     metadata:
+      # Template it, thanks to the parameters got it by PR generators https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/#template
       name: 'webapp-{{branch}}-{{number}}'
       namespace: argocd
     spec:
