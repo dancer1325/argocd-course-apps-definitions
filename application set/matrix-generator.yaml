@@ -2,18 +2,24 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: security-apps-matrix
+  # Deploy the ApplicationSet in the ArgoCD's namespace
   namespace: argocd
 spec:
   generators:
+  # ApplicationSet via Matrix (combination of different) generator
   - matrix:
-      generators:
+      generators:s
+      # via git generators
       - git:
           repoURL: https://github.com/dancer1325/argocd-example-apps.git
           revision: master
           directories:
+          # *  Include all the applications under this path
           - path: helmcharts/security-policy-charts/*
+      # via cluster generators
       - clusters:
           selector:
+          # Filter via labels
             matchLabels:
               non-prod: "true"
   template:
