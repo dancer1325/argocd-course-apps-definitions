@@ -2,11 +2,14 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: guestbook-2
+  # Deploy the ApplicationSet in the ArgoCD's namespaced
   namespace: argocd
 spec:
   generators:
+  # ApplicationSet via Cluster generator
   - clusters:
      selector:
+       # Based on the list of existing generators within ArgoCD --> filter via labels
        matchLabels:
         non-prod: "true"
 
